@@ -24,8 +24,9 @@ public class TestDataDAOCSV implements TestDataDAO {
         try (BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\17857172\\Desktop\\otus spring framework\\hw01\\testFile.csv"))) {
 
             String line;
+            int numberString = 0;
 
-            while ((line = br.readLine()) != null) {
+            while ((line = br.readLine()) != null && numberString++ < count) {
 
                 answers = new ArrayList<>();
 
@@ -40,7 +41,7 @@ public class TestDataDAOCSV implements TestDataDAO {
                 Question question = new Question(values[0], Integer.parseInt(values[1]) == 1);
 
                 String answer = "";
-                boolean correct = false;
+                boolean correct;
                 for (int i = 2; i < values.length; i++) {
                     if ((i%2) == 0)
                         answer = values[i];
@@ -55,6 +56,7 @@ public class TestDataDAOCSV implements TestDataDAO {
                 result.add(new Test(question, answers));
 
             }
+
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
