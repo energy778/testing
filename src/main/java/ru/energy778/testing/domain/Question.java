@@ -10,6 +10,10 @@ public class Question {
         this.someAnswers = someAnswers;
     }
 
+    public Question() {
+
+    }
+
     public String getData() {
         return data;
     }

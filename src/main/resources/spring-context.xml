@@ -3,7 +3,7 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="testDataDAO" class="ru.energy778.testing.dao.TestDataDAOMock" />
+    <bean id="testDataDAO" class="ru.energy778.testing.dao.TestDataDAOCSV" />
 
     <bean id="checkService" class="ru.energy778.testing.service.CheckServiceImpl">
     </bean>
