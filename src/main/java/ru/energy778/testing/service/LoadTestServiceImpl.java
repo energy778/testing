@@ -7,7 +7,7 @@ import java.util.List;
 
 public class LoadTestServiceImpl implements LoadTestService {
 
-    private TestDataDAO dao;
+    private final TestDataDAO dao;
 
     public LoadTestServiceImpl(TestDataDAO dao) {
         this.dao = dao;
