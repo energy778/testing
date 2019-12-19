@@ -1,9 +1,7 @@
 package ru.energy778.testing;
 
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.*;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 import ru.energy778.testing.domain.Test;
 import ru.energy778.testing.service.CheckService;
 import ru.energy778.testing.service.LoadTestService;
@@ -11,9 +9,15 @@ import ru.energy778.testing.service.TestingService;
 
 import java.util.List;
 
+@Configuration
 @PropertySource("classpath:application.properties")
 @ComponentScan(basePackages = "ru.energy778.testing")
 public class Main {
+
+    @Bean
+    public static PropertySourcesPlaceholderConfigurer placeholderConfigInDev(){
+        return new PropertySourcesPlaceholderConfigurer();
+    }
 
     public static void main(String[] args) {
 
