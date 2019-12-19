@@ -1,6 +1,8 @@
 package ru.energy778.testing;
 
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
 import ru.energy778.testing.domain.Test;
 import ru.energy778.testing.service.CheckService;
 import ru.energy778.testing.service.LoadTestService;
@@ -8,11 +10,13 @@ import ru.energy778.testing.service.TestingService;
 
 import java.util.List;
 
+@Configuration
+@ComponentScan(basePackages = "ru.energy778.testing.config")
 public class Main {
 
     public static void main(String[] args) {
 
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("/spring-context.xml");
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Main.class);
 
         LoadTestService testLoadService = context.getBean(LoadTestService.class);
         TestingService testingService = context.getBean(TestingService.class);
