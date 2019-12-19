@@ -13,6 +13,12 @@ import java.util.List;
 
 public class TestDataDAOCSV implements TestDataDAO {
 
+    private final String pathToFile;
+
+    public TestDataDAOCSV(String pathToFile) {
+        this.pathToFile = pathToFile;
+    }
+
     @Override
     public List<Test> getQuestions(Integer count) {
 
@@ -21,7 +27,7 @@ public class TestDataDAOCSV implements TestDataDAO {
         List<Test> result = new ArrayList<>();
         List<Answer> answers;
 
-        try (BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\17857172\\Desktop\\otus spring framework\\hw01\\testFile.csv"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(pathToFile))) {
 
             String line;
             int numberString = 0;
