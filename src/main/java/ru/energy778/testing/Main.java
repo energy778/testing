@@ -14,11 +14,6 @@ import java.util.List;
 @ComponentScan(basePackages = "ru.energy778.testing")
 public class Main {
 
-    @Bean
-    public static PropertySourcesPlaceholderConfigurer placeholderConfigInDev(){
-        return new PropertySourcesPlaceholderConfigurer();
-    }
-
     public static void main(String[] args) {
 
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Main.class);

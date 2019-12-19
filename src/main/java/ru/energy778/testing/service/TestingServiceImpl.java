@@ -1,5 +1,7 @@
 package ru.energy778.testing.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
 import ru.energy778.testing.domain.Answer;
 import ru.energy778.testing.domain.Question;
@@ -10,13 +12,32 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 @Service
 public class TestingServiceImpl implements TestingService {
 
+    @Autowired
+    MessageSource messageSource;
+
     public List<String> passExamination(List<Test> tests) {
 
-        System.out.println("Тестирование (вводите варианты ответов цифрами через пробел)");
+/* примеры интернационализации
+        Locale english = Locale.ENGLISH;
+        Locale russian = new Locale("ru", "RU");
+
+        System.out.println(messageSource.getMessage("msg", null, english));
+        System.out.println(messageSource.getMessage("msg", null, russian));
+
+        System.out.println(messageSource.getMessage("nameMsg", new Object[] { "Name1", "Name2"}, english));
+        System.out.println(messageSource.getMessage("nameMsg", new Object[] { "Name1", "Name2"}, russian));
+*/
+        System.out.println(
+                messageSource.getMessage("hello.input",
+                        null,
+                        Locale.ENGLISH)
+//                не подтягивается англ бандл
+        );
 
         List<String> enteredValues = new ArrayList<>();
 
