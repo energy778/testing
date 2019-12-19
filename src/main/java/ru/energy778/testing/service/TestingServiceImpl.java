@@ -1,5 +1,6 @@
 package ru.energy778.testing.service;
 
+import org.springframework.stereotype.Service;
 import ru.energy778.testing.domain.Answer;
 import ru.energy778.testing.domain.Question;
 import ru.energy778.testing.domain.Test;
@@ -10,6 +11,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class TestingServiceImpl implements TestingService {
 
     public List<String> passExamination(List<Test> tests) {

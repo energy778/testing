@@ -1,5 +1,6 @@
 package ru.energy778.testing.service;
 
+import org.springframework.stereotype.Service;
 import ru.energy778.testing.domain.Answer;
 import ru.energy778.testing.domain.Test;
 
@@ -7,6 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.IntStream;
 
+@Service
 public class CheckServiceImpl implements CheckService {
 
     @Override

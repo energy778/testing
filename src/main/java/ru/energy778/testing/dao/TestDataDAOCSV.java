@@ -1,5 +1,7 @@
 package ru.energy778.testing.dao;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 import ru.energy778.testing.domain.Answer;
 import ru.energy778.testing.domain.Question;
 import ru.energy778.testing.domain.Test;
@@ -11,11 +13,12 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class TestDataDAOCSV implements TestDataDAO {
 
     private final String pathToFile;
 
-    public TestDataDAOCSV(String pathToFile) {
+    public TestDataDAOCSV(@Value("${db.url}") String pathToFile) {
         this.pathToFile = pathToFile;
     }
 

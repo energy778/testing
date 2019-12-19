@@ -11,9 +11,8 @@ import ru.energy778.testing.service.TestingService;
 
 import java.util.List;
 
-@Configuration
 @PropertySource("classpath:application.properties")
-@ComponentScan(basePackages = "ru.energy778.testing.config")
+@ComponentScan(basePackages = "ru.energy778.testing")
 public class Main {
 
     public static void main(String[] args) {
