@@ -10,6 +10,7 @@ import ru.energy778.testing.service.TestingService;
 import java.util.List;
 
 @Configuration
+@EnableAspectJAutoProxy
 @PropertySource("classpath:application.properties")
 @ComponentScan(basePackages = "ru.energy778.testing")
 public class Main {
