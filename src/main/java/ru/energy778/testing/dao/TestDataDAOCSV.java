@@ -2,6 +2,7 @@ package ru.energy778.testing.dao;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import ru.energy778.testing.aspects.logger.LoggerAnn;
 import ru.energy778.testing.domain.Answer;
 import ru.energy778.testing.domain.Question;
 import ru.energy778.testing.domain.Test;
@@ -14,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
+@LoggerAnn
 public class TestDataDAOCSV implements TestDataDAO {
 
     private final String pathToFile;

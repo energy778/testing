@@ -18,7 +18,7 @@ import java.util.Locale;
 public class TestingServiceImpl implements TestingService {
 
     @Autowired
-    MessageSource messageSource;
+    private MessageSource messageSource;
 
     public List<String> passExamination(List<Test> tests) {
 
