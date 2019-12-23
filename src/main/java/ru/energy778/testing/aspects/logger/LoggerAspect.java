@@ -1,10 +1,10 @@
 package ru.energy778.testing.aspects.logger;
 
 import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.annotation.AfterReturning;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.*;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StopWatch;
 
 import java.util.List;
 
@@ -24,6 +24,25 @@ public class LoggerAspect {
         System.out.println(joinPoint.getSignature().toShortString() + " is called...");
         if (result instanceof List)
             System.out.println(String.format("... загружено вопросов: %1$s", ((List) result).size()));
+    }
+
+
+    @Pointcut("execution(public * ru.energy778.testing.service.TestingServiceImpl.passExamination(..))")
+    public void callPassExamination() {
+    }
+
+    @Around("callPassExamination()")
+    public Object aroundCallAt(ProceedingJoinPoint call) throws Throwable {
+
+        StopWatch clock = new StopWatch(call.toString());
+        try {
+            clock.start(call.toShortString());
+            return call.proceed();
+        } finally {
+            clock.stop();
+            System.out.println(clock.prettyPrint());
+        }
+
     }
 
 }
