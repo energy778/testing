@@ -1,5 +1,6 @@
 package ru.energy778.testing.service;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
@@ -15,9 +16,9 @@ import java.util.List;
 import java.util.Locale;
 
 @Service
+@RequiredArgsConstructor
 public class TestingServiceImpl implements TestingService {
 
-    @Autowired
     private MessageSource messageSource;
 
     public List<String> passExamination(List<Test> tests) {
@@ -32,12 +33,13 @@ public class TestingServiceImpl implements TestingService {
         System.out.println(messageSource.getMessage("nameMsg", new Object[] { "Name1", "Name2"}, english));
         System.out.println(messageSource.getMessage("nameMsg", new Object[] { "Name1", "Name2"}, russian));
 */
-        System.out.println(
-                messageSource.getMessage("hello.input",
-                        null,
-                        Locale.ENGLISH)
-//                не подтягивается англ бандл
-        );
+//        System.out.println(
+//                messageSource.getMessage("hello.input",
+//                        null,
+//                        Locale.ENGLISH)
+////                        Locale.getDefault()
+////                не подтягивается англ бандл
+//        );
 
         List<String> enteredValues = new ArrayList<>();
 
