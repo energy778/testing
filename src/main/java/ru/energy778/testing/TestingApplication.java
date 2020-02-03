@@ -3,8 +3,6 @@ package ru.energy778.testing;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import org.springframework.context.annotation.PropertySource;
 import ru.energy778.testing.domain.Test;
@@ -18,7 +16,7 @@ import java.util.List;
 //@Configuration
 @SpringBootApplication
 @PropertySource("classpath:application.properties")
-//@EnableAspectJAutoProxy
+@EnableAspectJAutoProxy
 //@ComponentScan(basePackages = "ru.energy778.testing")
 public class TestingApplication {
 
@@ -46,5 +44,3 @@ public class TestingApplication {
     }
 
 }
-
-

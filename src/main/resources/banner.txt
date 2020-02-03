@@ -1,1 +1,1 @@
-test application by S. Veretennikov
+banner: test application by S. Veretennikov

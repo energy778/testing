@@ -19,7 +19,7 @@ import java.util.Locale;
 @RequiredArgsConstructor
 public class TestingServiceImpl implements TestingService {
 
-    private MessageSource messageSource;
+    private final MessageSource messageSource;
 
     public List<String> passExamination(List<Test> tests) {
 
@@ -33,13 +33,12 @@ public class TestingServiceImpl implements TestingService {
         System.out.println(messageSource.getMessage("nameMsg", new Object[] { "Name1", "Name2"}, english));
         System.out.println(messageSource.getMessage("nameMsg", new Object[] { "Name1", "Name2"}, russian));
 */
-//        System.out.println(
-//                messageSource.getMessage("hello.input",
-//                        null,
+        System.out.println(
+                messageSource.getMessage("hello.input",
+                        null,
 //                        Locale.ENGLISH)
-////                        Locale.getDefault()
-////                не подтягивается англ бандл
-//        );
+                        Locale.getDefault())
+        );
 
         List<String> enteredValues = new ArrayList<>();
 

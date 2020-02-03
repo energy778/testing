@@ -15,7 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-@LoggerAnn
 public class TestDataDAOCSV implements TestDataDAO {
 
     private final String pathToFile;
@@ -24,6 +23,7 @@ public class TestDataDAOCSV implements TestDataDAO {
         this.pathToFile = pathToFile;
     }
 
+    @LoggerAnn
     @Override
     public List<Test> getQuestions(Integer count) {
 
